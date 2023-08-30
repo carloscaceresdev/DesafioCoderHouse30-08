@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+    <label for="numeros">Insira os números (separados por vírgula):</label>
+    <input type="text" id="numeros">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    
+    <p id="resultado"></p>
+    
+    <script>
+        function calcularMedia() {
+            var numerosInput = document.getElementById("numeros").value;
+            var numerosArray = numerosInput.split(",");
+            var numeros = numerosArray.map(Number);
+            
+            var soma = numeros.reduce(function(a, b) {
+                return a + b;
+            }, 0);
+            
+            var media = soma / numeros.length;
+            
+            var resultadoElement = document.getElementById("resultado");
+            resultadoElement.textContent = "A média dos números inseridos é: " + media.toFixed(2);
+        }
+    </script>
+</body>
+</html>
